@@ -10,7 +10,9 @@ export default function Footer() {
     <footer className="bg-[#323232] text-[#d9d9d9] flex flex-col items-center gap-5 py-5 px-[8vw] pt-[80px] mt-[100px]">
       <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-5 gap-[80px] mb-8">
         <div className="flex flex-col gap-6 col-span-1 -mt-1">
-          <h2 className=" font-bold text-3xl">Tsukuyomi</h2>
+          <h2 className=" font-bold text-3xl">
+            <Link href="/">Tsukuyomi</Link>
+          </h2>
           <h3 className="font-semibold text-xl pl-1">Subscribe</h3>
           <div className="pl-1 flex flex-col gap-5">
             <Label htmlFor="discount">Get 10% off your first order</Label>
@@ -33,11 +35,22 @@ export default function Footer() {
         <div className=" col-span-1">
           <h3 className="font-semibold text-2xl">Account</h3>
           <div className="flex flex-col gap-2 mt-4">
-            <p>My Account</p>
-            <p>Login / Register</p>
-            <p>Cart</p>
-            <p>Wishlist</p>
-            <p>Shop</p>
+            <p>
+              <Link href="/profile">Profile</Link>
+            </p>
+            <p>
+              <Link href="/sign-in">Login</Link> /{" "}
+              <Link href="/sign-up">Register</Link>
+            </p>
+            <p>
+              <Link href="/cart">Cart</Link>
+            </p>
+            <p>
+              <Link href="/wishlist">Wishlist</Link>
+            </p>
+            <p>
+              <Link href="/products">Shop</Link>
+            </p>
           </div>
         </div>
         <div className=" col-span-1">
@@ -46,7 +59,9 @@ export default function Footer() {
             <p>Privacy Policy</p>
             <p>Terms Of Use</p>
             <p>FAQ</p>
-            <p>Contact</p>
+            <p>
+              <Link href="/contact">Contact</Link>
+            </p>
           </div>
         </div>
         <div className="flex flex-col gap-4 col-span-1">

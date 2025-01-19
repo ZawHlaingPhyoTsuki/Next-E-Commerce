@@ -22,12 +22,12 @@ export default function Navbar() {
           />
           <Search className="absolute top-2 right-3 size-5 cursor-pointer" />
         </div>
-        <div className="cursor-pointer">
+        <Link href="/wishlist" className="cursor-pointer hover:text-red-500 ">
           <Heart />
-        </div>
-        <div className="cursor-pointer">
+        </Link>
+        <Link href="/cart" className="cursor-pointer hover:text-red-500">
           <ShoppingCart />
-        </div>
+        </Link>
         <div className=" lg:hidden flex items-center justify-center">
           <MenuDropDown />
         </div>

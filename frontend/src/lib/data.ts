@@ -54,6 +54,7 @@ export const ElectronicsG = [
 
 export const products = [
   {
+    id: 0,
     name: "The north coat",
     price: 260,
     originalPrice: 360,
@@ -61,6 +62,7 @@ export const products = [
     star: 5,
   },
   {
+    id: 1,
     name: "Gucci",
     price: 960,
     originalPrice: 1160,
@@ -68,6 +70,7 @@ export const products = [
     star: 4.5,
   },
   {
+    id: 2,
     name: "The north coat",
     price: 260,
     originalPrice: 360,
@@ -75,6 +78,7 @@ export const products = [
     star: 5,
   },
   {
+    id: 3,
     name: "Gucci",
     price: 960,
     originalPrice: 1160,
@@ -82,6 +86,7 @@ export const products = [
     star: 4.5,
   },
   {
+    id: 4,
     name: "Gucci",
     price: 960,
     originalPrice: 1160,

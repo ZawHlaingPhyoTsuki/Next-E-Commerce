@@ -1,8 +1,8 @@
-import BestSelling from "../components/body/BestSellingPage";
-import Category from "../components/body/CategoryPage";
-import FeaturedPage from "../components/body/FeaturedPage";
-import Hero from "../components/body/HeroPage";
-import ProductsPage from "../components/body/ProductsPage";
+import BestSelling from "../components/body/BestSellingSection";
+import Category from "../components/body/CategorySection";
+import FeaturedPage from "../components/body/FeaturedSection";
+import Hero from "../components/body/HeroSection";
+import ProductsPage from "@/components/body/Product/ProductsSection";
 
 export default function Home() {
   return (

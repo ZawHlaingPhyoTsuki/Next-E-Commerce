@@ -1,10 +1,20 @@
 import React from "react";
-import Tag from "./Tag";
-import { Button } from "../ui/button";
+import Tag from "@/components/body/Tag";
+import { Button } from "@/components/ui/button";
 import { MoveLeft, MoveRight } from "lucide-react";
-import ProductCard from "./ProductCard";
+import Link from "next/link";
+import ProductCards from "./ProductCards";
+import { Product } from "@/app/types/products.type";
 
-export default function ProductsPage() {
+async function getProducts() {
+  const res = await fetch("https://fakestoreapi.com/products");
+  return await res.json();
+}
+
+export default async function ProductsPage() {
+  const products: Product[] = await getProducts();
+  // console.log(products);
+
   return (
     <section className="flex flex-col gap-16 border-b-2 border-b-slate-200  pb-20">
       <div className="flex flex-col gap-5">
@@ -27,24 +37,15 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
-      {/* Grid Products */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 place-content-evenly">
-        {Array.from({ length: 8 }).map((_, index) => (
-          <React.Fragment key={index}>
-            <ProductCard
-              item={{
-                name: "The north coat",
-                price: 260,
-                originalPrice: 360,
-                image: "/image.png",
-                star: 5,
-              }}
-            />
-          </React.Fragment>
-        ))}
-      </div>
-      <Button className="bg-red-500 hover:bg-red-700 w-[235px] h-[56px] mx-auto">
-        View All Products
+
+      {/* Products */}
+      <ProductCards products={products} />
+
+      <Button
+        asChild
+        className="bg-red-500 hover:bg-red-700 w-[235px] h-[56px] mx-auto"
+      >
+        <Link href="/products">View All Products</Link>
       </Button>
     </section>
   );

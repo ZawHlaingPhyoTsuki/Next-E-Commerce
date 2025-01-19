@@ -1,11 +1,18 @@
 import React from "react";
 import Tag from "./Tag";
 import { Button } from "../ui/button";
-import ProductCard from "./ProductCard";
-import { products } from "../../lib/data";
+import ProductCard from "./Product/ProductCard";
+import { Product } from "@/app/types/products.type";
+// import { products } from "../../lib/data";
 
-export default function BestSelling() {
-  
+async function getProducts(limit: number) {
+  const res = await fetch(`https://fakestoreapi.com/products?limit=${limit}`);
+  return await res.json();
+}
+
+export default async function BestSelling() {
+  const products: Product[] = await getProducts(10);
+  // console.log(products);
 
   return (
     <section className="flex flex-col gap-16 border-b-2 border-b-slate-200  pb-20">
@@ -20,7 +27,7 @@ export default function BestSelling() {
       </div>
       <ul className="flex gap-10 overflow-x-auto scrollbar-customize ">
         {products.map((item, index) => (
-          <li key={item.name + index}>
+          <li key={item.title + index}>
             <ProductCard item={item} />
           </li>
         ))}

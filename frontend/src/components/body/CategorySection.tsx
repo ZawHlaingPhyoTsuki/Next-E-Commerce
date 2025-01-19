@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { ElectronicsG } from "../../lib/data";
 import Tag from "./Tag";
+import Link from "next/link";
 
 export default function Category() {
   return (
@@ -33,10 +34,13 @@ export default function Category() {
             <li key={item.name}>
               <Button
                 variant={"outline"}
+                asChild
                 className="flex flex-col items-center justify-center  w-[220px] h-[190px] hover:bg-red-500 hover:text-white border-slate-300 hover:border-none [&_svg]:size-14 pt-5"
               >
-                <item.icon />
-                <h3 className="text-xl py-4">{item.name}</h3>
+                <Link href={`/products/${item.name.toLowerCase()}`}>
+                  <item.icon />
+                  <h3 className="text-xl py-4">{item.name}</h3>
+                </Link>
               </Button>
             </li>
           ))}

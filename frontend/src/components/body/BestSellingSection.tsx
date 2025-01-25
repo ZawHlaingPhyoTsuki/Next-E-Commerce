@@ -1,17 +1,15 @@
 import React from "react";
 import Tag from "./Tag";
 import { Button } from "../ui/button";
-import ProductCard from "./Product/ProductCard";
-import { Product } from "@/app/types/products.type";
-// import { products } from "../../lib/data";
+import { ProductResponse } from "@/types/products.type";
+import {ProductCard} from "./Product/ProductCards";
+import Link from "next/link";
+import { getAllProducts } from "@/lib/services";
 
-async function getProducts(limit: number) {
-  const res = await fetch(`https://fakestoreapi.com/products?limit=${limit}`);
-  return await res.json();
-}
+
 
 export default async function BestSelling() {
-  const products: Product[] = await getProducts(10);
+  const {products} = await getAllProducts(10);
   // console.log(products);
 
   return (
@@ -20,14 +18,14 @@ export default async function BestSelling() {
         <Tag>This Month</Tag>
         <div className="flex justify-between ">
           <h1 className="text-[40px] font-semibold">Best Selling Products</h1>
-          <Button className="w-[160px] h-[56px] bg-red-500 hover:bg-red-700 text-xl">
-            View All
+          <Button asChild className="w-[160px] h-[56px] bg-red-500 hover:bg-red-700 text-xl">
+            <Link href="/products">View All</Link>
           </Button>
         </div>
       </div>
-      <ul className="flex gap-10 overflow-x-auto scrollbar-customize ">
+      <ul className="w-full flex gap-10 overflow-x-auto scrollbar-customize">
         {products.map((item, index) => (
-          <li key={item.title + index}>
+          <li className="w-[300px] flex-shrink-0" key={item.title + index}>
             <ProductCard item={item} />
           </li>
         ))}

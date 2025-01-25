@@ -15,7 +15,13 @@ export default function Hero() {
         </ul>
       </div>
       <div className="col-span-4 md:pt-10 md:pl-10 ">
-        <Image src="/image.svg" width={1200} height={400} alt="image" />
+        <Image
+          src="/image.svg"
+          width={1200}
+          height={400}
+          alt="image"
+          priority
+        />
       </div>
     </section>
   );

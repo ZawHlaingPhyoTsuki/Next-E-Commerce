@@ -18,9 +18,9 @@ export default function Navbar() {
         <div className="relative">
           <Input
             placeholder="What are you looking for?"
-            className="bg-slate-100 cursor-pointer outline-none border-none "
+            className="bg-slate-100 cursor-pointer outline-none border-none hidden sm:block"
           />
-          <Search className="absolute top-2 right-3 size-5 cursor-pointer" />
+          <Search className=" sm:absolute top-2 right-3  sm:size-5 cursor-pointer" />
         </div>
         <Link href="/wishlist" className="cursor-pointer hover:text-red-500 ">
           <Heart />

@@ -1,11 +1,15 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { MoveLeft, MoveRight } from "lucide-react";
-import { ElectronicsG } from "../../lib/data";
 import Tag from "./Tag";
 import Link from "next/link";
+import { getCatogories } from "@/lib/services";
 
-export default function Category() {
+
+export default async function Category() {
+  const categories = await getCatogories();
+  console.log(categories);
+
   return (
     <section className="flex flex-col gap-16 border-b-2 border-b-slate-200 pb-20">
       <div className="flex flex-col gap-5">
@@ -30,15 +34,15 @@ export default function Category() {
       </div>
       <div>
         <ul className="flex gap-10 overflow-x-auto scrollbar-customize">
-          {ElectronicsG.map((item) => (
-            <li key={item.name}>
+          {categories.map((item) => (
+            <li key={item.slug}>
               <Button
                 variant={"outline"}
                 asChild
                 className="flex flex-col items-center justify-center  w-[220px] h-[190px] hover:bg-red-500 hover:text-white border-slate-300 hover:border-none [&_svg]:size-14 pt-5"
               >
-                <Link href={`/products/${item.name.toLowerCase()}`}>
-                  <item.icon />
+                <Link href={`/products/category/${item.slug}`}>
+                  {/* <item.icon /> */}
                   <h3 className="text-xl py-4">{item.name}</h3>
                 </Link>
               </Button>

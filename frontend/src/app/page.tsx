@@ -1,8 +1,8 @@
+import ProductsSection from "@/components/body/Product/ProductsSection";
 import BestSelling from "../components/body/BestSellingSection";
 import Category from "../components/body/CategorySection";
-import FeaturedPage from "../components/body/FeaturedSection";
 import Hero from "../components/body/HeroSection";
-import ProductsPage from "@/components/body/Product/ProductsSection";
+import FeaturedSection from "../components/body/FeaturedSection";
 
 export default function Home() {
   return (
@@ -10,8 +10,8 @@ export default function Home() {
       <Hero />
       <Category />
       <BestSelling />
-      <ProductsPage />
-      <FeaturedPage />
+      <ProductsSection />
+      <FeaturedSection />
     </main>
   );
 }

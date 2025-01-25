@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Link from "next/link";
 import ProductCards from "./ProductCards";
-import { Product } from "@/app/types/products.type";
+import { Product, ProductResponse } from "@/types/products.type";
 
-async function getProducts() {
-  const res = await fetch("https://fakestoreapi.com/products");
+async function getProducts(): Promise<ProductResponse> {
+  const res = await fetch('https://dummyjson.com/products');
   return await res.json();
 }
 
-export default async function ProductsPage() {
-  const products: Product[] = await getProducts();
+export default async function ProductsSection() {
+  const {products} = await getProducts();
   // console.log(products);
 
   return (
@@ -43,7 +43,7 @@ export default async function ProductsPage() {
 
       <Button
         asChild
-        className="bg-red-500 hover:bg-red-700 w-[235px] h-[56px] mx-auto"
+        className="bg-red-500 hover:bg-red-700 w-[235px] h-[56px] mx-auto text-xl"
       >
         <Link href="/products">View All Products</Link>
       </Button>

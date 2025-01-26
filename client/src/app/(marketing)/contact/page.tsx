@@ -1,9 +1,17 @@
-import React from 'react'
+import { GETUsers } from "@/app/api/route";
+import React from "react";
 
-export default function page() {
+export default async function page() {
+  const users = await GETUsers();
+
   return (
     <div>
-      Contact Page
+      Contact Page{" "}
+      {users.map((user) => (
+        <p key={user.id}>
+          {user.name} and {user.email}
+        </p>
+      ))}
     </div>
-  )
+  );
 }
